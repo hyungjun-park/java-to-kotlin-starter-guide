@@ -17,3 +17,61 @@
 - null 이 절대 아닐때 사용할 수 있는 널 아님 단언 (!!) 이 있다.
 - 코틀린에서 Java 코드를 사용할 때 플랫폼 타입 사용에 유의해야 한다.
   - Java 코드를 읽으며 null 가능성 확인 (null 관련 어노테이션)
+
+# 03. 코틀린에서 Type을 다루는 방법
+
+## 기본 타입
+- Byte
+- Short
+- Int
+- Long
+- Float
+- Double
+```kotlin
+// 코틀린에서는 선언된 기본값을 보고 타입을 추론한다.
+val number1 = 3 // Int
+var number2 = 3L // Long
+val number3 = 3.0f // Float
+val number4 = 3.0 // Double
+
+// Java 와 다른 내용
+// Java - 기본 타입간의 변환은 암시적으로 이루어질 수 있다.
+// Kotlin - 기본 타입간의 변환은 명시적으로 이루어져야 한다.
+
+/* Java
+// Java에서는 더 큰 타입으로는 암시적으로 변경
+int number1 = 4;
+long number2 = number1; // 타입 변환
+
+System.out.println(number1 + number2); // long 타입으로 변환
+*/
+val number5 = 4
+// val number2: Long = number1 // Type mismatch Error
+val number6: Long = number1.toLong()
+```
+## 특이한 타입 3가지
+1. Any
+   - Java의 Object 역할 (모든 객체의 최상위 타입)
+   - 모든 Primitive Type의 최상의 타입도 Any
+   - Any 자체로는 null을 포함할 수 없어 null을 포함하고 싶다면 Any?로 표현
+   - Any 에 equals / hashCode / toString 존재 (Java의 Object와 동일)
+2. Unit
+   - Unit은 Java의 void와 동일한 역할
+   - void와 다르게 Unit은 그 자체로 타입 인자로 사용 가능하다.
+   - 함수형 프로그래밍에서 Unit은 단 하나의 인스턴스만 갖는 타입을 의미.   
+   즉, 코틀린의 Unit은 실제 존재하는 타입이라는 것을 표현
+3. 
+
+## 정리
+- 코틀린의 변수는 초기값을 보고 타입을 추론하며, 기본 타입들 간의 변환은 명시적으로 이루어진다.
+- 코틀린에서는 is, !is, as, as? 를 이용해 타입을 확인하고 캐스팅한다.
+- 코틀린의 Any는 Java의 Object와 같은 최상위 타입이다.
+- 코틀린의 Unit은 Java의 void와 동일하다.
+- 코틀린에 있는 Nothing은 정상적으로 끝나지 않는 함수의 반환을 의미한다. (실무에서는 사용이 거의 없다.)
+
+# 04. 코틀린에서 연산자를 다루는 방법
+- 단항연산자, 산술연산자, 산술대입연산자 Java와 똑같다.
+- 비교 연산자 사용법도 Java와 똑같다.
+  - 단, 객체끼리도 자동 호출되는 compareTo를 이용해 비교 연산자를 사용할 수 있다.
+- in, !in / a..b / a[i] / a[i] = b 와 같이 코틀린에서 새로 생긴 연산자도 있다.
+- 객체끼리의 연산자를 직접 정의할 수 있다.
