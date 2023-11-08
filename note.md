@@ -60,7 +60,9 @@ val number6: Long = number1.toLong()
    - void와 다르게 Unit은 그 자체로 타입 인자로 사용 가능하다.
    - 함수형 프로그래밍에서 Unit은 단 하나의 인스턴스만 갖는 타입을 의미.   
    즉, 코틀린의 Unit은 실제 존재하는 타입이라는 것을 표현
-3. 
+3. Nothing
+    - Nothing은 함수가 정상적으로 끝나지 않았다는 사실을 표현하는 역할
+    - 무조건 예외를 반환하는 함수 / 무한 루프 함수
 
 ## 정리
 - 코틀린의 변수는 초기값을 보고 타입을 추론하며, 기본 타입들 간의 변환은 명시적으로 이루어진다.
@@ -75,3 +77,51 @@ val number6: Long = number1.toLong()
   - 단, 객체끼리도 자동 호출되는 compareTo를 이용해 비교 연산자를 사용할 수 있다.
 - in, !in / a..b / a[i] / a[i] = b 와 같이 코틀린에서 새로 생긴 연산자도 있다.
 - 객체끼리의 연산자를 직접 정의할 수 있다.
+
+# 05. 코틀린에서 제어문을 다루는 방법
+## if-else
+Java와 문법이 동일하다.   
+Java 에서 if-else는 **Statement**이지만,   
+Kotlin에서는 **Expression**이다. (3항 연산자가 없다)
+- Statement : 프로그램의 문장, 하나의 값으로 도출되지 않는다.
+- Expression : 하나의 값으로 도출되는 문장
+
+```kotlin
+val score = 90
+val grade = if (score >= 50) {
+    "P"
+} else {
+    "F"
+}
+// 코틀린에서는 if-else 가 Expression으로 사용할 수 잇기 때문에 3항 연산자가 없다.
+// Java에서는 위와 같은 경우 3항 연산자를 사용하면 된다.
+```
+
+## switch 와 when
+Java의 switch는 Kotlin에서 when으로 대체되었다.
+```kotlin
+/*
+when (값) {
+    조건부 -> 어떠한 구문
+    조건부 -> 어떠한 구문
+    else -> 어떠한 구문
+}
+ */
+fun getGradeWithSwitch(score: Int): String {
+    return when (score / 10) {
+        9 -> "A"
+        8 -> "B"
+        7 -> "C"
+        else -> "D"
+    }
+}
+
+fun getGradeWithSwitch2(score: Int): String {
+    return when (score) {
+        in 90..99 -> "A"
+        in 80..89 -> "B"
+        in 70..79 -> "C"
+        else -> "D"
+    }
+}
+```
