@@ -137,3 +137,13 @@ fun getGradeWithSwitch2(score: Int): String {
   - Kotlin에서는 try catch가 expression이다.
 - Kotlin에서 모든 예외는 Unchecked Exception이다.
 - Kotlin에서는 try with resources 구문이 없다. 대신 코틀린의 언어적 특징을 황용해 close를 초출해준다.
+
+# 08. 코틀린에서 함수를 다루는 방법
+- 함수의 문법은 Java와 다르다.   
+접근시지어 fun 함수이름(파라미터): 반환타입 {   
+}
+- body가 하나의 값으로 간주되는 경우 block{}을 없앨 수도 있고   
+block이 없다면 반환 타입을 없앨 수도 있다.
+- 함수 파라미터에 기본값을 설정해 줄 수 있다.
+- 함수를 호출할 때 특정 파라미터를 지정해 넣어줄 수 있다. (named argument, build의 장점을 가질 수 있다.)
+- 가변인자에는 vararg 키워드를 사용하며, 가변인자 함수를 배열로 호출할 때는 *(spread 연산자)를 붙여주어야 한다.
