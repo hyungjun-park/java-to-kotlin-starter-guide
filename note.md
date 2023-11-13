@@ -131,3 +131,9 @@ fun getGradeWithSwitch2(score: Int): String {
 - 전통적인 for문에서 Kotilin 은 등차수열과 in 을 사용한다.
 - 그 외 for문 문법은 동일하다.
 - while 문과 do while 문은 Java와 동일하다.
+
+# 07. 코틀린에서 예외를 다루는 방법
+- try catch finally 구문은 문법적으로 동일하다.
+  - Kotlin에서는 try catch가 expression이다.
+- Kotlin에서 모든 예외는 Unchecked Exception이다.
+- Kotlin에서는 try with resources 구문이 없다. 대신 코틀린의 언어적 특징을 황용해 close를 초출해준다.
