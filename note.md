@@ -147,3 +147,27 @@ block이 없다면 반환 타입을 없앨 수도 있다.
 - 함수 파라미터에 기본값을 설정해 줄 수 있다.
 - 함수를 호출할 때 특정 파라미터를 지정해 넣어줄 수 있다. (named argument, build의 장점을 가질 수 있다.)
 - 가변인자에는 vararg 키워드를 사용하며, 가변인자 함수를 배열로 호출할 때는 *(spread 연산자)를 붙여주어야 한다.
+
+# 09. 코틀린에서 클래스를 다루는 방법
+- 코틀린에서는 필드를 만들면 getter와 (필요에 따라) setter가 자동으로 생긴다.
+  - 때문에 이를 프로퍼티 라고 부른다.
+- 코틀린에서는 주생성자가 필수이다.
+- 코틀린에서는 constructor 키워드를 사용해 부생성자를 추가로 만들 수 있다.
+  - 단, default parameter나 정적 팩토리 메소드 사용을 추천한다.
+- custom getter와 custom setter를 만들 수 있다.
+- custom getter, setter 에서 무한루프를 막기 위해 **field**라는 키워드를 사용한다. (backing field)
+```kotlin
+class Person(
+    name: String = "홍길동",
+    var age: Int = 1
+) {
+    var name: String = name
+        get() = field.uppercase()
+        set(value) {
+            field = value.lowercase()
+        }
+    
+    // 부생성자
+    constructor(): this("홍부", 100)
+}
+```
