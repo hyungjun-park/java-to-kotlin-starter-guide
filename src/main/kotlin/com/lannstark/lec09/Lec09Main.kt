@@ -43,9 +43,9 @@ class Person( // 주 생성자
 
     // 성인인지 확인하는 함수 작성의 2가지 (함수, custom getter)
     // 함수
-    fun isAdult(): Boolean {
+    /*fun isAdult(): Boolean {
         return this.age >= 20
-    }
+    }*/
     // Custom getter
     val isAdult: Boolean
         get() = this.age >= 20
