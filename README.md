@@ -224,5 +224,9 @@ class Person(
 - Kotlin의 protected 와 Java 의 protected 는 다르다.   
 Java 는 같은 패키지의 Kotlin protected 멤버에 접근할 수 있다.
 
-
+# 12. 코틀린에서 object 키워드를 다루는 방법
+- Java의 static 변수와 함수를 만드려면 Kotlin에서는 companion object를 사용해야 한다.
+- companion object도 하나의 객체로 간주되기 때문에 이름을 붙일 수 있고, 다른 타입을 상속받을 수도 있다.
+- Kotlin에서 싱글톤 클래스를 만들 때 object 키워드를 사용한다.
+- Kotlin에서 익명 클래스를 만들 때 object : 타입 을 사용한다.
 
