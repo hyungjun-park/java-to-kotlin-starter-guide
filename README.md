@@ -244,3 +244,10 @@ Java 는 같은 패키지의 Kotlin protected 멤버에 접근할 수 있다.
 - Kotlin의 **Data class**를 사용하면 equals, hashCode, toString을 자동으로 만들어준다.
 - Kotlin의 Enum Class는 Java의 Enum Class와 동일하지만 when과 함께 사용함으로써 큰 장점을 갖게 된다.
 - Enum Class보다 유연하지만, 하위 클래스를 제한하는 Sealed Class 역시 when과 함께 주로 사용된다.
+
+# 15. 코틀린에서 배열과 컬렉션을 다루는 방법
+- 코틀린에서는 컬렉션을 만들 때도 불변/가변을 지정해야 한다.
+- List, Set, Map 에 대한 사용법이 변경, 확장되었다.
+- Java와 Kotlin 코드를 섞어 컬렉션을 사용할 때에는 주의해야 한다.
+  - Java에서 Kotlin 컬렉션을 가져갈 때는 불변 컬렉션을 수정할 수도 있고, non-nullable 컬렉션에 null을 넣을 수도 있다.
+  - Kotlin에서 Java 컬렉션을 가져갈 때는 플랫폼타입을 주의해야 한다.
