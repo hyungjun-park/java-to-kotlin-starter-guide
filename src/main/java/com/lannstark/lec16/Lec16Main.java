@@ -9,6 +9,8 @@ public class Lec16Main {
 
     int number = 100;
 
+    // 코틀린의 확장 함수를 java에서 호출 예시
+    Lec16MainKt.lastChar("ABC");
   }
 
 }
