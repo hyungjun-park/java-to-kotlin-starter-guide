@@ -277,3 +277,42 @@ infix fun Int.add(other: Int): Int {
     return this + other
 }
 ```
+
+# 17. 코틀린에서 람다를 다루는 방법
+- 함수는 Java에서 2급 시민이지만, 코틀린에서는 1급 시민이다.
+  - 때문에, 함수 자체를 변수에 넣을 수도 있고 파라미텅로 전달할 수도 있다.
+- 코틀린에서 함수 타입은 (파라미터 타입, ...) -> 반환타입 이다.
+- 코틀린에서 람다는 두 가지 방법으로 만들 수 있고, {} 2번 방법이 더 많이 사용 된다.
+- 함수를 호출하며, ㅁ지막 파라미터인 람다를 쓸 때는 소괄호 밖으로 람다를 뺄 수 있다.
+- 람다의 마지막 expression 결과는 람다의 반환 값이다.
+- 코틀린에서는 Closure를 사용하여 non-final 변수도 람다에서 사용 할 수 있다.
+```kotlin
+// 람다를 만드는 방법 1
+val isApple = fun(fruit: Fruit): Boolean {
+    return fruit.name == "사과"
+}
+
+// 람다를 만드는 방법 2
+val isApple2 = { fruit: Fruit -> fruit.name == "사과" }
+
+// 함수의 마지막 파라미터가 람다인 경우 소괄호 밖으로 람다를 뺄 수 있다.
+filterFruits(fruits) { it.name == "사과" }
+fun filterFruits(fruits: List<Fruit>, filter: (Fruit) -> Boolean) {
+    ...
+}
+
+// 람다의 마지막 줄은 반환 값이다.
+filterFruits(fruits) { fruit -> 
+    println("사과사과~")
+    fruit.name == "사과"
+}
+
+// Closure
+// Java 에서는 람다를 쓸 때 사용할 수 있는 변수에 제역이 있음. 아래의 경우 에러 사용 불가
+// 코틀린에서는 람다가 시작하는 지점에 참조하고 있는 변수들을 모두 포획하여 그 정보를 가지고 있어 문제 없이 동작한다.
+// 이 데이터 구조를 Closure 라고 한다. (람다가 실행되는 시점에 쓰고 있는 변수들을 모두 포획한 데이터 구조)
+var targetFruitName = "바나나"
+targetFruitName = "수박"
+val results = filterFruits(fruits) {it.name == targetFruitName}
+results.forEach { println(it.name) }
+```
