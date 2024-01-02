@@ -316,3 +316,22 @@ targetFruitName = "수박"
 val results = filterFruits(fruits) {it.name == targetFruitName}
 results.forEach { println(it.name) }
 ```
+
+# 18. 코틀린에서 컬렉션을 함수형으로 다루는 방법
+- filter, filterIndexed
+- map, mapIndexed
+- all: 조건을 모두 만족하면 true 그렇지 않으면 false
+- none: 조건을 모두 불만족하면 true 그렇지 않으면 false
+- any: 조건을 하나라도 만족하면 true 그렇지 않으면 false
+- count: 개수를 센다. size 와 동일
+- sortedBy: 오름차순 정렬
+- sortedByDescending: 내림 차순 정렬
+- distinct: 변형된 값을 기준으로 중복을 제거한다
+- first: 첫번재 값을 가져온다 (null인 경우 Exception 발생)
+- firstOrNull: 첫번째 값 또는 null
+- last: 마지막 값을 가져온다 (null인 경우 Exception 발생)
+- lastOrNull: 마지막 값 또는 null
+- groupBy: 컬렉션의 요소를 지정된 기준으로 그룹화
+- associateBy: 컬렉션의 각 요소를 특정 키에 따라 매칭하여 새로운 맵을 생성
+- flatMap: 컬렉션의 각 요소에 대해 변환 함수를 적용하고 그 결과를 하나의 평면화된 리스트로 합쳐줌
+- flatten: 중첩된 구조를 평면화하여 단일 레벨의 컬렉션으로 만들어 줌
