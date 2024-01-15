@@ -335,3 +335,10 @@ results.forEach { println(it.name) }
 - associateBy: 컬렉션의 각 요소를 특정 키에 따라 매칭하여 새로운 맵을 생성
 - flatMap: 컬렉션의 각 요소에 대해 변환 함수를 적용하고 그 결과를 하나의 평면화된 리스트로 합쳐줌
 - flatten: 중첩된 구조를 평면화하여 단일 레벨의 컬렉션으로 만들어 줌
+
+# 19. 코틀린의 이모저모
+- 타입에 대한 별칭을 줄 수 있는 typealias 라는 키워드가 존재한다.
+- Import 당시 이름을 바꿀 수 있는 as import 기능이 존재한다.
+- 변수를 한 번에 선언할 수 있는 구조분배 기능이 있으며, componentN 함수를 사용한다.
+- for, while문과 달리 forEach 에는 break와 continue를 사용할 수 없다.
+- takeIf와 takeUnless를 활용해 코드양을 줄이고 method chaning을 활용할 수 있다.
